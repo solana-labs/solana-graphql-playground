@@ -76,7 +76,7 @@ export default function Home() {
             {/* IDE */}
             <div className="h-screen border-2 border-gray-500 rounded w-full">
                 {typeof window !== 'undefined' && (
-                    <GraphiQL fetcher={graphQLFetcher}>
+                    <GraphiQL fetcher={graphQLFetcher} isHeadersEditorEnabled={false}>
                         <GraphiQL.Logo>
                             <Image alt="Solana logo" height={24} src="/solanaLogoMark.svg" width={24} />
                         </GraphiQL.Logo>
