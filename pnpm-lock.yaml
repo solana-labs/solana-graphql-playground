@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@graphiql/react':
+    specifier: ^0.20.2
+    version: 0.20.2(@codemirror/language@6.0.0)(@types/node@20.8.10)(@types/react-dom@18.2.14)(@types/react@18.2.33)(graphql@16.8.1)(react-dom@18.2.0)(react@18.2.0)
   '@solana/rpc-graphql':
     specifier: 2.0.0-experimental.d32897d
     version: 2.0.0-experimental.d32897d

@@ -5,8 +5,9 @@ import 'graphiql/graphiql.css';
 import { createRpcGraphQL } from '@solana/rpc-graphql';
 import { createDefaultRpcTransport, createSolanaRpc } from '@solana/web3.js';
 import { GraphiQL } from 'graphiql';
-import Image from 'next/image';
 import React, { useCallback, useEffect } from 'react';
+
+import { ClusterSwitcher, TargetCluster } from './cluster-switcher';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -15,9 +16,7 @@ BigInt.prototype.toJSON = function () {
     return int ?? this.toString();
 };
 
-type Cluster = 'devnet' | 'testnet' | 'mainnet-beta';
-
-function setupRpcGraphQL(cluster: Cluster = 'devnet') {
+function setupRpcGraphQL(cluster: TargetCluster = 'devnet') {
     const url = `https://api.${cluster}.solana.com`;
     const transport = createDefaultRpcTransport({ url });
     const rpc = createSolanaRpc({ transport });
@@ -25,7 +24,7 @@ function setupRpcGraphQL(cluster: Cluster = 'devnet') {
 }
 
 export default function Home() {
-    const [cluster, setCluster] = React.useState<Cluster>('devnet');
+    const [cluster, setCluster] = React.useState<TargetCluster>('devnet');
     const [rpcGraphQL, setRpcGraphQL] = React.useState(setupRpcGraphQL(cluster));
 
     useEffect(() => {
@@ -48,29 +47,6 @@ export default function Home() {
                 <h1 className="text-5xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
                     Solana GraphQL Playground
                 </h1>
-                {/* Right side cluster select */}
-                <div className="flex flex-row justify-between text-l p-4 pb-0 w-1/2 my-auto mr-0">
-                    <button
-                        className={`border-2 border-${cluster === 'devnet' ? 'green-400' : 'gray-500'} rounded-md p-2`}
-                        onClick={() => setCluster('devnet')}
-                    >
-                        <p>Devnet</p>
-                    </button>
-                    <button
-                        className={`border-2 border-${cluster === 'testnet' ? 'green-400' : 'gray-500'} rounded-md p-2`}
-                        onClick={() => setCluster('testnet')}
-                    >
-                        <p>Testnet</p>
-                    </button>
-                    <button
-                        className={`border-2 border-${
-                            cluster === 'mainnet-beta' ? 'green-400' : 'gray-500'
-                        } rounded-md p-2`}
-                        onClick={() => setCluster('mainnet-beta')}
-                    >
-                        <p>Mainnet-Beta</p>
-                    </button>
-                </div>
             </div>
 
             {/* IDE */}
@@ -78,7 +54,7 @@ export default function Home() {
                 {typeof window !== 'undefined' && (
                     <GraphiQL fetcher={graphQLFetcher} isHeadersEditorEnabled={false}>
                         <GraphiQL.Logo>
-                            <Image alt="Solana logo" height={24} src="/solanaLogoMark.svg" width={24} />
+                            <ClusterSwitcher currentCluster={cluster} onClusterChange={setCluster} />
                         </GraphiQL.Logo>
                     </GraphiQL>
                 )}
