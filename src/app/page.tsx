@@ -40,17 +40,14 @@ export default function Home() {
     );
 
     return (
-        <main className="flex flex-col items-center justify-center justify-between p-12 w-full h-screen">
+        <main className="flex flex-col w-full h-screen divide-y divide-slate-300">
             {/* Header section */}
-            <div className="flex flex-row w-full justify-between my-auto ml-0">
-                {/* Left side title */}
-                <h1 className="text-5xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-                    Solana GraphQL Playground
-                </h1>
-            </div>
+            <h1 className="px-5 py-4 text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
+                Solana GraphQL Playground
+            </h1>
 
             {/* IDE */}
-            <div className="h-screen border-2 border-gray-500 rounded w-full">
+            <div className="grow">
                 {typeof window !== 'undefined' && (
                     <GraphiQL fetcher={graphQLFetcher} isHeadersEditorEnabled={false}>
                         <GraphiQL.Logo>
