@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@solana/prettier-config-solana':
-    specifier: ^0.0.3
-    version: 0.0.3(prettier@3.0.3)
   '@solana/rpc-graphql':
     specifier: 2.0.0-experimental.d32897d
     version: 2.0.0-experimental.d32897d
@@ -37,6 +34,9 @@ devDependencies:
   '@solana/eslint-config-solana':
     specifier: ^1.0.2
     version: 1.0.2(@typescript-eslint/eslint-plugin@6.9.1)(@typescript-eslint/parser@6.9.1)(eslint-plugin-jest@27.6.0)(eslint-plugin-react-hooks@4.6.0)(eslint-plugin-simple-import-sort@10.0.0)(eslint-plugin-sort-keys-fix@1.1.2)(eslint@8.52.0)(typescript@5.2.2)
+  '@solana/prettier-config-solana':
+    specifier: ^0.0.4
+    version: 0.0.4(prettier@3.1.1)
   '@types/node':
     specifier: ^20
     version: 20.8.10
@@ -1112,13 +1112,13 @@ packages:
       '@solana/assertions': 2.0.0-experimental.d32897d
     dev: false
 
-  /@solana/prettier-config-solana@0.0.3(prettier@3.0.3):
-    resolution: {integrity: sha512-69lOncqTcp7Q/yQIU7R4/nQ6Ejir0TlYiUMcOM/z1PHsiDRF6qL+Jzfy8J9j5euDAR5VCoh0kM5lzaB/sdWgCA==}
+  /@solana/prettier-config-solana@0.0.4(prettier@3.1.1):
+    resolution: {integrity: sha512-8kNkSb7h4DkJlDn4C8v0V2IJQhAswPE4kHE45xAp6eKDEJw7PlHsiYIm46A6owpr57W3KS/xnTVVGE4p/5PijA==}
     peerDependencies:
-      prettier: ^3.0.2
+      prettier: ^3.1.0
     dependencies:
-      prettier: 3.0.3
-    dev: false
+      prettier: 3.1.1
+    dev: true
 
   /@solana/rpc-core@2.0.0-experimental.d32897d:
     resolution: {integrity: sha512-nCMo6D4EEQWh2Rv64KKx7YIC4gVa5fSWYMHDGgjGoKGtrBFictwgzQbVaQDHU7yRLqFjg46kMbLv6XYR5TLeQg==}
@@ -3400,11 +3400,11 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier@3.0.3:
-    resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
+  /prettier@3.1.1:
+    resolution: {integrity: sha512-22UbSzg8luF4UuZtzgiUOfcGM8s4tjBv6dJRT7j275NXsy2jb4aJa4NNveul5x4eqlF1wuhuR2RElK71RvmVaw==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: false
+    dev: true
 
   /prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
