@@ -11,9 +11,8 @@
     "dependencies": {
         "@solana/rpc-graphql": "2.0.0-experimental.d32897d",
         "@solana/web3.js": "2.0.0-experimental.d32897d",
-        "graphiql": "^3.0.6",
+        "graphiql": "^3.0.10",
         "graphql": "^16.8.1",
-        "graphql-ws": "^5.14.2",
         "next": "14.0.1",
         "react": "^18",
         "react-dom": "^18"
