@@ -11,8 +11,8 @@
     "dependencies": {
         "@graphiql/react": "^0.20.2",
         "@graphiql/toolkit": "^0.9.1",
-        "@solana/rpc-graphql": "2.0.0-experimental.d32897d",
-        "@solana/web3.js": "2.0.0-experimental.d32897d",
+        "@solana/rpc-graphql": "2.0.0-experimental.e1b2277",
+        "@solana/web3.js": "2.0.0-experimental.e1b2277",
         "graphiql": "^3.0.10",
         "graphql": "^16.8.1",
         "lz-string": "^1.5.0",
