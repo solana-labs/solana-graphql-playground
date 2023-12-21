@@ -21,7 +21,11 @@ BigInt.prototype.toJSON = function () {
     return int ?? this.toString();
 };
 
-function createQueryResolver(cluster: Cluster) {
+type QueryResolverParameters = Parameters<ReturnType<typeof createRpcGraphQL>['query']>;
+type QueryResolverReturnType = ReturnType<ReturnType<typeof createRpcGraphQL>['query']>;
+type QueryResolver = (...params: QueryResolverParameters) => QueryResolverReturnType;
+
+function createQueryResolver(cluster: Cluster): QueryResolver {
     let url;
     switch (cluster) {
         case Cluster.DEVNET:
@@ -33,9 +37,6 @@ function createQueryResolver(cluster: Cluster) {
         case Cluster.TESTNET:
             url = `https://api.testnet.solana.com`;
             break;
-        default:
-            // Exhaustive switch.
-            return ((_: never) => {})(cluster);
     }
     const transport = createDefaultRpcTransport({ url });
     const rpc = createSolanaRpc({ transport });
