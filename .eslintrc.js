@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ["@solana/eslint-config-solana", "plugin:@next/next/recommended"],
+    extends: ['@solana/eslint-config-solana', 'plugin:@next/next/recommended'],
 };
