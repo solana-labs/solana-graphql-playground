@@ -107,10 +107,16 @@ export default function Home() {
         };
     }, [permalinkedQuery]);
     const [cluster, setCluster] = React.useState<Cluster>(() => permalinkedQuery?.cluster ?? Cluster.MAINNET_BETA);
+    const [response, setResponse] = React.useState<string>();
+    const handleClusterChange = (nextCluster: Cluster) => {
+        setResponse("");
+        setCluster(nextCluster);
+    };
     const variablesRef = useRef<string | undefined>();
     const graphQLFetcher = useMemo(() => {
         const resolveQuery = createQueryResolver(cluster);
         return async (...args: Parameters<React.ComponentProps<typeof Ide>['fetcher']>) => {
+            setResponse(undefined);
             const [{ query, variables }] = args;
             return await resolveQuery(query, variables);
         };
@@ -130,10 +136,11 @@ export default function Home() {
                 navigator.clipboard.writeText(permalink.toString());
                 setHash(permalink.hash);
             }}
-            onClusterChange={setCluster}
+            onClusterChange={handleClusterChange}
             onEditVariables={variables => {
                 variablesRef.current = variables;
             }}
+            response={response}
             showPersistHeadersSettings={false}
             storage={proxyStorage}
             variables={permalinkedQuery?.variables}
