@@ -5,12 +5,14 @@ import 'graphiql/graphiql.css';
 import { Storage, StorageAPI } from '@graphiql/toolkit';
 import { createRpcGraphQL } from '@solana/rpc-graphql';
 import { createDefaultRpcTransport, createSolanaRpc } from '@solana/web3.js';
-import { GraphiQL } from 'graphiql';
+import dynamic from 'next/dynamic';
 import React, { useMemo, useRef } from 'react';
 
-import { Cluster, ClusterSwitcher } from '@/components/ClusterSwitcher';
+import { Cluster } from '@/components/ClusterSwitcher';
 import { createPermalink, parsePermlinkSlug } from '@/utils/permalink';
 import { useHash } from '@/utils/url-hash';
+
+const Ide = dynamic(() => import('@/components/Ide'), { ssr: false });
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -94,13 +96,14 @@ export default function Home() {
     const variablesRef = useRef<string | undefined>();
     const graphQLFetcher = useMemo(() => {
         const resolveQuery = createQueryResolver(cluster);
-        return async (...args: Parameters<React.ComponentProps<typeof GraphiQL>['fetcher']>) => {
+        return async (...args: Parameters<React.ComponentProps<typeof Ide>['fetcher']>) => {
             const [{ query, variables }] = args;
             return await resolveQuery(query, variables);
         };
     }, [cluster]);
     return (
-        <GraphiQL
+        <Ide
+            currentCluster={cluster}
             fetcher={graphQLFetcher}
             isHeadersEditorEnabled={false}
             query={permalinkedQuery?.query}
@@ -113,16 +116,13 @@ export default function Home() {
                 navigator.clipboard.writeText(permalink.toString());
                 setHash(permalink.hash);
             }}
+            onClusterChange={setCluster}
             onEditVariables={variables => {
                 variablesRef.current = variables;
             }}
             showPersistHeadersSettings={false}
             storage={proxyStorage}
             variables={permalinkedQuery?.variables}
-        >
-            <GraphiQL.Logo>
-                <ClusterSwitcher currentCluster={cluster} onClusterChange={setCluster} />
-            </GraphiQL.Logo>
-        </GraphiQL>
+        />
     );
 }
