@@ -1,6 +1,5 @@
 {
-    "name": "solana-graphql",
-    "version": "0.1.0",
+    "name": "solana-graphql-playground",
     "private": true,
     "scripts": {
         "dev": "next dev",
