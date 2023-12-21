@@ -5,7 +5,7 @@ import 'graphiql/graphiql.css';
 import { createRpcGraphQL } from '@solana/rpc-graphql';
 import { createDefaultRpcTransport, createSolanaRpc } from '@solana/web3.js';
 import { GraphiQL } from 'graphiql';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -30,6 +30,14 @@ export default function Home() {
     useEffect(() => {
         setRpcGraphQL(setupRpcGraphQL(cluster));
     }, [cluster]);
+
+    const graphQLFetcher = useCallback(
+        async (...args: Parameters<React.ComponentProps<typeof GraphiQL>['fetcher']>) => {
+            const [{ query, variables }] = args;
+            return await rpcGraphQL.query(query, variables);
+        },
+        [rpcGraphQL],
+    );
 
     return (
         <main className="flex flex-col items-center justify-center justify-between p-12 w-full h-screen">
@@ -66,14 +74,7 @@ export default function Home() {
 
             {/* IDE */}
             <div className="h-screen border-2 border-gray-500 rounded w-full">
-                {typeof window !== 'undefined' && (
-                    <GraphiQL
-                        fetcher={
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            (params: any) => rpcGraphQL.query(params.query)
-                        }
-                    />
-                )}
+                {typeof window !== 'undefined' && <GraphiQL fetcher={graphQLFetcher} />}
             </div>
         </main>
     );
