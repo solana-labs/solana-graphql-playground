@@ -7,7 +7,10 @@ settings:
 dependencies:
   '@graphiql/react':
     specifier: ^0.20.2
-    version: 0.20.2(@codemirror/language@6.0.0)(@types/node@20.8.10)(@types/react-dom@18.2.14)(@types/react@18.2.33)(graphql@16.8.1)(react-dom@18.2.0)(react@18.2.0)
+    version: 0.20.2(@codemirror/language@6.0.0)(@types/node@20.8.10)(@types/react-dom@18.2.14)(@types/react@18.2.33)(graphql-ws@5.14.3)(graphql@16.8.1)(react-dom@18.2.0)(react@18.2.0)
+  '@graphiql/toolkit':
+    specifier: ^0.9.1
+    version: 0.9.1(@types/node@20.8.10)(graphql-ws@5.14.3)(graphql@16.8.1)
   '@solana/rpc-graphql':
     specifier: 2.0.0-experimental.d32897d
     version: 2.0.0-experimental.d32897d
@@ -20,6 +23,9 @@ dependencies:
   graphql:
     specifier: ^16.8.1
     version: 16.8.1
+  lz-string:
+    specifier: ^1.5.0
+    version: 1.5.0
   next:
     specifier: 14.0.1
     version: 14.0.1(react-dom@18.2.0)(react@18.2.0)
@@ -3032,6 +3038,11 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
+
+  /lz-string@1.5.0:
+    resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
+    hasBin: true
+    dev: false
 
   /markdown-it@12.3.2:
     resolution: {integrity: sha512-TchMembfxfNVpHkbtriWltGWc+m3xszaRD0CZup7GFFhzIgQqxIfn3eGj1yZpfuflzPvfkt611B2Q/Bsk1YnGg==}

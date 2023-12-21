@@ -1,16 +1,19 @@
 import { StarIcon, ToolbarButton, ToolbarMenu } from '@graphiql/react';
 import Image from 'next/image';
 
-export type TargetCluster = 'devnet' | 'testnet';
+export enum Cluster {
+    DEVNET = 0,
+    TESTNET = 1,
+}
 
 type Props = Readonly<{
-    currentCluster: TargetCluster;
-    onClusterChange: (nextCluster: TargetCluster) => void;
+    currentCluster: Cluster;
+    onClusterChange: (nextCluster: Cluster) => void;
 }>;
 
 const CLUSTER_LABEL = {
-    devnet: 'Devnet',
-    testnet: 'Testnet',
+    [Cluster.DEVNET]: 'Devnet',
+    [Cluster.TESTNET]: 'Testnet',
 } as const;
 
 export function ClusterSwitcher({ currentCluster, onClusterChange }: Props) {
@@ -33,12 +36,12 @@ export function ClusterSwitcher({ currentCluster, onClusterChange }: Props) {
             }
             label="Select cluster"
         >
-            {(['devnet', 'testnet'] as TargetCluster[]).map(targetCluster => (
-                <ToolbarMenu.Item onSelect={onClusterChange.bind(null, targetCluster)}>
+            {[Cluster.DEVNET, Cluster.TESTNET].map(Cluster => (
+                <ToolbarMenu.Item onSelect={onClusterChange.bind(null, Cluster)}>
                     <StarIcon
-                        className={`inline pe-1 align-text-top ${targetCluster === currentCluster ? '' : 'invisible'}`}
+                        className={`inline pe-1 align-text-top ${Cluster === currentCluster ? '' : 'invisible'}`}
                     />{' '}
-                    {CLUSTER_LABEL[targetCluster]}
+                    {CLUSTER_LABEL[Cluster]}
                 </ToolbarMenu.Item>
             ))}
         </ToolbarMenu>
