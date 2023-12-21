@@ -106,6 +106,20 @@ export default function Home() {
             },
         };
     }, [permalinkedQuery]);
+
+    const [showCopiedPopup, setShowCopiedPopup] = React.useState<boolean>(false);
+    const handleCopyQuery = (query: string) => {
+        const permalink = createPermalink({
+            cluster,
+            query,
+            variables: variablesRef.current,
+        });
+        navigator.clipboard.writeText(permalink.toString());
+        setHash(permalink.hash);
+        setShowCopiedPopup(true);
+        setTimeout(() => setShowCopiedPopup(false), 2000);
+    };
+
     const [cluster, setCluster] = React.useState<Cluster>(() => permalinkedQuery?.cluster ?? Cluster.MAINNET_BETA);
     const [response, setResponse] = React.useState<string>();
     const handleClusterChange = (nextCluster: Cluster) => {
@@ -127,20 +141,13 @@ export default function Home() {
             fetcher={graphQLFetcher}
             isHeadersEditorEnabled={false}
             query={permalinkedQuery?.query}
-            onCopyQuery={query => {
-                const permalink = createPermalink({
-                    cluster,
-                    query,
-                    variables: variablesRef.current,
-                });
-                navigator.clipboard.writeText(permalink.toString());
-                setHash(permalink.hash);
-            }}
+            onCopyQuery={handleCopyQuery}
             onClusterChange={handleClusterChange}
             onEditVariables={variables => {
                 variablesRef.current = variables;
             }}
             response={response}
+            showCopiedPopup={showCopiedPopup}
             showPersistHeadersSettings={false}
             storage={proxyStorage}
             variables={permalinkedQuery?.variables}
