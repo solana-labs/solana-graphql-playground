@@ -5,6 +5,7 @@ import 'graphiql/graphiql.css';
 import { createRpcGraphQL } from '@solana/rpc-graphql';
 import { createDefaultRpcTransport, createSolanaRpc } from '@solana/web3.js';
 import { GraphiQL } from 'graphiql';
+import Image from 'next/image';
 import React, { useCallback, useEffect } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -74,7 +75,13 @@ export default function Home() {
 
             {/* IDE */}
             <div className="h-screen border-2 border-gray-500 rounded w-full">
-                {typeof window !== 'undefined' && <GraphiQL fetcher={graphQLFetcher} />}
+                {typeof window !== 'undefined' && (
+                    <GraphiQL fetcher={graphQLFetcher}>
+                        <GraphiQL.Logo>
+                            <Image alt="Solana logo" height={24} src="/solanaLogoMark.svg" width={24} />
+                        </GraphiQL.Logo>
+                    </GraphiQL>
+                )}
             </div>
         </main>
     );
