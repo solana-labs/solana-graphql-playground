@@ -12,11 +12,11 @@ dependencies:
     specifier: ^0.9.1
     version: 0.9.1(@types/node@20.8.10)(graphql-ws@5.14.3)(graphql@16.8.1)
   '@solana/rpc-graphql':
-    specifier: 2.0.0-experimental.d32897d
-    version: 2.0.0-experimental.d32897d
+    specifier: 2.0.0-experimental.e1b2277
+    version: 2.0.0-experimental.e1b2277
   '@solana/web3.js':
-    specifier: 2.0.0-experimental.d32897d
-    version: 2.0.0-experimental.d32897d(fastestsmallesttextencoderdecoder@1.0.22)(ws@8.14.2)
+    specifier: 2.0.0-experimental.e1b2277
+    version: 2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22)(ws@8.14.2)
   graphiql:
     specifier: ^3.0.10
     version: 3.0.10(@codemirror/language@6.0.0)(@types/node@20.8.10)(@types/react-dom@18.2.14)(@types/react@18.2.33)(graphql-ws@5.14.3)(graphql@16.8.1)(react-dom@18.2.0)(react@18.2.0)
@@ -242,6 +242,51 @@ packages:
       meros: 1.3.0(@types/node@20.8.10)
     transitivePeerDependencies:
       - '@types/node'
+    dev: false
+
+  /@graphql-tools/merge@9.0.1(graphql@16.8.1):
+    resolution: {integrity: sha512-hIEExWO9fjA6vzsVjJ3s0cCQ+Q/BEeMVJZtMXd7nbaVefVy0YDyYlEkeoYYNV3NVVvu1G9lr6DM1Qd0DGo9Caw==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+    dependencies:
+      '@graphql-tools/utils': 10.0.11(graphql@16.8.1)
+      graphql: 16.8.1
+      tslib: 2.6.2
+    dev: false
+
+  /@graphql-tools/schema@10.0.2(graphql@16.8.1):
+    resolution: {integrity: sha512-TbPsIZnWyDCLhgPGnDjt4hosiNU2mF/rNtSk5BVaXWnZqvKJ6gzJV4fcHcvhRIwtscDMW2/YTnK6dLVnk8pc4w==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+    dependencies:
+      '@graphql-tools/merge': 9.0.1(graphql@16.8.1)
+      '@graphql-tools/utils': 10.0.11(graphql@16.8.1)
+      graphql: 16.8.1
+      tslib: 2.6.2
+      value-or-promise: 1.0.12
+    dev: false
+
+  /@graphql-tools/utils@10.0.11(graphql@16.8.1):
+    resolution: {integrity: sha512-vVjXgKn6zjXIlYBd7yJxCVMYGb5j18gE3hx3Qw3mNsSEsYQXbJbPdlwb7Fc9FogsJei5AaqiQerqH4kAosp1nQ==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+    dependencies:
+      '@graphql-typed-document-node/core': 3.2.0(graphql@16.8.1)
+      cross-inspect: 1.0.0
+      dset: 3.1.3
+      graphql: 16.8.1
+      tslib: 2.6.2
+    dev: false
+
+  /@graphql-typed-document-node/core@3.2.0(graphql@16.8.1):
+    resolution: {integrity: sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==}
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+    dependencies:
+      graphql: 16.8.1
     dev: false
 
   /@headlessui/react@1.7.17(react-dom@18.2.0)(react@18.2.0):
@@ -1044,44 +1089,44 @@ packages:
     resolution: {integrity: sha512-6i/8UoL0P5y4leBIGzvkZdS85RDMG9y1ihZzmTZQ5LdHUYmZ7pKFoj8X0236s3lusPs1Fa5HTQUpwI+UfTcmeA==}
     dev: true
 
-  /@solana/addresses@2.0.0-experimental.d32897d(fastestsmallesttextencoderdecoder@1.0.22):
-    resolution: {integrity: sha512-lcwcXXcy+CkcB+ILM8Kik5n/k5WCPss/2K2TeWImHLXBb6+q3ua6TryQOxNUlF9JNZcwsrtSosuH6fg45TpTuw==}
+  /@solana/addresses@2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22):
+    resolution: {integrity: sha512-WZlucsaVXpK38suFuqfddEdPrGHuhi8F7T9YOcmrlWWZZ43PTb1kGHy59mGz/C4djcti9CZTgA5sF3j01T74yQ==}
     dependencies:
-      '@solana/assertions': 2.0.0-experimental.d32897d
-      '@solana/codecs-core': 2.0.0-experimental.d32897d
-      '@solana/codecs-strings': 2.0.0-experimental.d32897d(fastestsmallesttextencoderdecoder@1.0.22)
+      '@solana/assertions': 2.0.0-experimental.e1b2277
+      '@solana/codecs-core': 2.0.0-experimental.e1b2277
+      '@solana/codecs-strings': 2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22)
     transitivePeerDependencies:
       - fastestsmallesttextencoderdecoder
     dev: false
 
-  /@solana/assertions@2.0.0-experimental.d32897d:
-    resolution: {integrity: sha512-WAAYZfa3FY2XrdPGX1Zcd874PSSx3WrS2hungbzuf+mjR5FMPMBp4uMbbX6zCooXndhOFluOxq7xeRlyQS3C6A==}
+  /@solana/assertions@2.0.0-experimental.e1b2277:
+    resolution: {integrity: sha512-TU1HMHiJlMORYuE/in8edesu8QiCyyXu0LdMyuxXeDGdLwQ+LfiKhwsMrdXJVoaqDA7VARBzpsIDYw+T08g+Pg==}
     dev: false
 
-  /@solana/codecs-core@2.0.0-experimental.d32897d:
-    resolution: {integrity: sha512-vZK318imi9DG5jzJerR85N8OCvrCyHwbXj4F4T2LHZggqUeq/NUOvCS2ILFhmh8PYsq728+T+Li2xGkQkZ5fcA==}
+  /@solana/codecs-core@2.0.0-experimental.e1b2277:
+    resolution: {integrity: sha512-9TIP/jzXsZMS4aMqQ5xxy2x++LnuV30oRE6oyMbt8TwxjGCa4RdUx+8pASp9+1ifBqAtFL16ozgKi5uUfEhyQg==}
     dev: false
 
-  /@solana/codecs-data-structures@2.0.0-experimental.d32897d:
-    resolution: {integrity: sha512-3/n7kNWtWdHvH7sctGrQGbU4s60ITpQYX5AnfMlIJvfch9SvCBVofO77FJh82nSpBdvMBebbIDzLVr6IovXNnQ==}
+  /@solana/codecs-data-structures@2.0.0-experimental.e1b2277:
+    resolution: {integrity: sha512-ixkWeuy67k75Q55a4CvmeyXH+JZRhd+9OVXsSOmBcAQbsc5PKoB+B08CTQH/0MfusEnkimPJ779AYZwXJNTt7Q==}
     dependencies:
-      '@solana/codecs-core': 2.0.0-experimental.d32897d
-      '@solana/codecs-numbers': 2.0.0-experimental.d32897d
+      '@solana/codecs-core': 2.0.0-experimental.e1b2277
+      '@solana/codecs-numbers': 2.0.0-experimental.e1b2277
     dev: false
 
-  /@solana/codecs-numbers@2.0.0-experimental.d32897d:
-    resolution: {integrity: sha512-r2mdrC8xBsfiRU2xfOyaE5zxJcitWfriXxRNDJhblS03Iw55HWwfk62fCEWvP1eo4xR57yl0s3ANMV2E6JEmuw==}
+  /@solana/codecs-numbers@2.0.0-experimental.e1b2277:
+    resolution: {integrity: sha512-Yzvoj6HHMtU0MgUogaS9CMwJ574+tb7q5C2Lo+Io8qcy2+YrsGpKADpiAE+tC+1NVRFXHopTR1/heUNNBNYQYw==}
     dependencies:
-      '@solana/codecs-core': 2.0.0-experimental.d32897d
+      '@solana/codecs-core': 2.0.0-experimental.e1b2277
     dev: false
 
-  /@solana/codecs-strings@2.0.0-experimental.d32897d(fastestsmallesttextencoderdecoder@1.0.22):
-    resolution: {integrity: sha512-n8yTI5dMQ/18iu5+Tn8/KNb3xbc2tlq4cozJGaBQMSe6V5STc5cQay0FMMUJYdavXS0TXiNWzxnYUJTucvvosA==}
+  /@solana/codecs-strings@2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22):
+    resolution: {integrity: sha512-Kh+/AwKJEzNwj8nFxy3siA7peFgmFGhtGY/PdbqWmotcnmVvJHkP+mIWkA721NjuaBJWbczKv40O2rhjO244mA==}
     peerDependencies:
       fastestsmallesttextencoderdecoder: ^1.0.22
     dependencies:
-      '@solana/codecs-core': 2.0.0-experimental.d32897d
-      '@solana/codecs-numbers': 2.0.0-experimental.d32897d
+      '@solana/codecs-core': 2.0.0-experimental.e1b2277
+      '@solana/codecs-numbers': 2.0.0-experimental.e1b2277
       fastestsmallesttextencoderdecoder: 1.0.22
     dev: false
 
@@ -1107,18 +1152,22 @@ packages:
       typescript: 5.2.2
     dev: true
 
-  /@solana/functional@2.0.0-experimental.d32897d:
-    resolution: {integrity: sha512-xaGdmJ01n+STV040VM5ZgP4lGA9xv+MlMoyqkbLTRdl0IkX8FFnvs51UwwJ1YaqejQdPO7At0/NbEc07ndJqYg==}
+  /@solana/functional@2.0.0-experimental.e1b2277:
+    resolution: {integrity: sha512-5whMUXVxS+x2aviJLCC9vA06f+vSGmRUxEGRL4GJAIWSykShS+W6dq5tcipw3JnYmyUknlXCKCrBhfNz92l9gA==}
     dev: false
 
-  /@solana/instructions@2.0.0-experimental.d32897d:
-    resolution: {integrity: sha512-8CRbFcRAXkXoZ49HbmC/L+jfELbroQv4IlJXRI0kZI6Z7I4G0rGEMgR4ivI7/L3o4LF3GBnFYCmMI9lJuIi51A==}
+  /@solana/instructions@2.0.0-experimental.e1b2277:
+    resolution: {integrity: sha512-Cbbu04Z0DDYYexQGbi/GE/ov4CfsHh5q/DWwkL8Q7wiYFkbDAfR7ff+ZAj4W2EwdAh+j16H92u8ekzrB2hwQgQ==}
     dev: false
 
-  /@solana/keys@2.0.0-experimental.d32897d:
-    resolution: {integrity: sha512-CsZXqj8GXMQURpcOHUOSJmi9Klw4cKq2sXkF3bGKXJPhWDF8io9tIy0dELAgpCk04cGX5lyl2C81M8NqCoIIgQ==}
+  /@solana/keys@2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22):
+    resolution: {integrity: sha512-NJhsHhfz3iglDDh8gR1U9hdB2KsVGFNNr28CBZpiI2M2ow22lOlMp0VFv4D4De7d63KVg2lOl8hR/jjpEVWtOQ==}
     dependencies:
-      '@solana/assertions': 2.0.0-experimental.d32897d
+      '@solana/assertions': 2.0.0-experimental.e1b2277
+      '@solana/codecs-core': 2.0.0-experimental.e1b2277
+      '@solana/codecs-strings': 2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22)
+    transitivePeerDependencies:
+      - fastestsmallesttextencoderdecoder
     dev: false
 
   /@solana/prettier-config-solana@0.0.4(prettier@3.1.1):
@@ -1129,54 +1178,57 @@ packages:
       prettier: 3.1.1
     dev: true
 
-  /@solana/rpc-core@2.0.0-experimental.d32897d:
-    resolution: {integrity: sha512-nCMo6D4EEQWh2Rv64KKx7YIC4gVa5fSWYMHDGgjGoKGtrBFictwgzQbVaQDHU7yRLqFjg46kMbLv6XYR5TLeQg==}
+  /@solana/rpc-core@2.0.0-experimental.e1b2277:
+    resolution: {integrity: sha512-px0chsJrklfrZklvjiZQmqqkuoNigOs0PaQy1LMCMTp9xl1QBJZSOsCi1RREjMpA7vRfIJ/4i542jmQs7uHa+Q==}
     dev: false
 
-  /@solana/rpc-graphql@2.0.0-experimental.d32897d:
-    resolution: {integrity: sha512-a49zynMEd7eKurllnc/TxmcIfdbpLOxRyumaNj9fHnyUOK6ADTJo8CGd7vj7E3WnKIL1gQq/9XVXug/TsRNIRw==}
+  /@solana/rpc-graphql@2.0.0-experimental.e1b2277:
+    resolution: {integrity: sha512-z86k61NzPkuDAb3hJ/8H9vDnJwScJZvaf0gsG+WPJH0RduVbaF0UVH3mKuBhp3GUfAy9a9Yk6D2KuUZrUrvPbg==}
     dependencies:
+      '@graphql-tools/schema': 10.0.2(graphql@16.8.1)
+      dataloader: 2.2.2
+      fast-stable-stringify: 1.0.0
       graphql: 16.8.1
     dev: false
 
-  /@solana/rpc-transport@2.0.0-experimental.d32897d(ws@8.14.2):
-    resolution: {integrity: sha512-u2RpZ08vKfgl3h6yy31ecy5w05+wKAkTpxUCbKOmQzXG1L49doFwJjH6RrKSEgzTd3l+fMKnDtuATlerHV723w==}
+  /@solana/rpc-transport@2.0.0-experimental.e1b2277(ws@8.14.2):
+    resolution: {integrity: sha512-6AFbMZSgW4qJSHX0qghA+A+GITvxoNaChhALvbB3SYIw3CfV7RLPNdsS9P7ue3zNvUzd7ArIzvf23WSjoDYeWQ==}
     peerDependencies:
       ws: ^8.14.0
     dependencies:
       ws: 8.14.2
     dev: false
 
-  /@solana/rpc-types@2.0.0-experimental.d32897d:
-    resolution: {integrity: sha512-9Dyo/vJJ+k4T3rTZjjhlBnDfaj9unia2SVSmsk8OhDPd+jnPnTfIxoapFY2Srez2W+pLD5SN3EFHU6OB2c2lvQ==}
+  /@solana/rpc-types@2.0.0-experimental.e1b2277:
+    resolution: {integrity: sha512-TnuI5xjvUQMHH9wXqRD4Kfc6Q3hOC/RZppfFeJ/ZUetMn2t39zb3bH88UHxG51xuuDtvHB9ijUfPYOHpJkQFfQ==}
     dev: false
 
-  /@solana/transactions@2.0.0-experimental.d32897d(fastestsmallesttextencoderdecoder@1.0.22):
-    resolution: {integrity: sha512-nnsJ6Lgpbl6avVXQyE2BmAGFeCX1HWaOnvofqw66LIbXnM5acAsqUOKPF7V/gDCVRtHx0EXtemvYuGtcfVT+ow==}
+  /@solana/transactions@2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22):
+    resolution: {integrity: sha512-xs+nJDw9hHsqU7CwQTvutG0SuwF7OllFdqaI6sLP0+o1QRJgc211NZMc0dn8rmwknMC0hiympeqh7Wf1pQBsXw==}
     dependencies:
-      '@solana/addresses': 2.0.0-experimental.d32897d(fastestsmallesttextencoderdecoder@1.0.22)
-      '@solana/codecs-core': 2.0.0-experimental.d32897d
-      '@solana/codecs-data-structures': 2.0.0-experimental.d32897d
-      '@solana/codecs-numbers': 2.0.0-experimental.d32897d
-      '@solana/codecs-strings': 2.0.0-experimental.d32897d(fastestsmallesttextencoderdecoder@1.0.22)
-      '@solana/functional': 2.0.0-experimental.d32897d
-      '@solana/keys': 2.0.0-experimental.d32897d
+      '@solana/addresses': 2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22)
+      '@solana/codecs-core': 2.0.0-experimental.e1b2277
+      '@solana/codecs-data-structures': 2.0.0-experimental.e1b2277
+      '@solana/codecs-numbers': 2.0.0-experimental.e1b2277
+      '@solana/codecs-strings': 2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22)
+      '@solana/functional': 2.0.0-experimental.e1b2277
+      '@solana/keys': 2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22)
     transitivePeerDependencies:
       - fastestsmallesttextencoderdecoder
     dev: false
 
-  /@solana/web3.js@2.0.0-experimental.d32897d(fastestsmallesttextencoderdecoder@1.0.22)(ws@8.14.2):
-    resolution: {integrity: sha512-oAG32hhw4mexKYluq5tNwRZLC5Wc+9Q4JBK6gX+iee8pk0G2KdWyfYLYCjpIGDQdO1H5zNvnt/p7ZMkkUK9Nww==}
+  /@solana/web3.js@2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22)(ws@8.14.2):
+    resolution: {integrity: sha512-9IjsL7sIgUESEG4RZbCndey156Ecf6YO12YkbNXCrPmnNvB6+IQk0g9xPa13AqH5uD9LmiQIhdyt6CcnLCp6Yg==}
     dependencies:
-      '@solana/addresses': 2.0.0-experimental.d32897d(fastestsmallesttextencoderdecoder@1.0.22)
-      '@solana/codecs-strings': 2.0.0-experimental.d32897d(fastestsmallesttextencoderdecoder@1.0.22)
-      '@solana/functional': 2.0.0-experimental.d32897d
-      '@solana/instructions': 2.0.0-experimental.d32897d
-      '@solana/keys': 2.0.0-experimental.d32897d
-      '@solana/rpc-core': 2.0.0-experimental.d32897d
-      '@solana/rpc-transport': 2.0.0-experimental.d32897d(ws@8.14.2)
-      '@solana/rpc-types': 2.0.0-experimental.d32897d
-      '@solana/transactions': 2.0.0-experimental.d32897d(fastestsmallesttextencoderdecoder@1.0.22)
+      '@solana/addresses': 2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22)
+      '@solana/codecs-strings': 2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22)
+      '@solana/functional': 2.0.0-experimental.e1b2277
+      '@solana/instructions': 2.0.0-experimental.e1b2277
+      '@solana/keys': 2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22)
+      '@solana/rpc-core': 2.0.0-experimental.e1b2277
+      '@solana/rpc-transport': 2.0.0-experimental.e1b2277(ws@8.14.2)
+      '@solana/rpc-types': 2.0.0-experimental.e1b2277
+      '@solana/transactions': 2.0.0-experimental.e1b2277(fastestsmallesttextencoderdecoder@1.0.22)
       fast-stable-stringify: 1.0.0
     transitivePeerDependencies:
       - fastestsmallesttextencoderdecoder
@@ -1781,6 +1833,13 @@ packages:
       toggle-selection: 1.0.6
     dev: false
 
+  /cross-inspect@1.0.0:
+    resolution: {integrity: sha512-4PFfn4b5ZN6FMNGSZlyb7wUhuN8wvj8t/VQHZdM4JsDcruGJ8L2kf9zao98QIrBPFCpdk27qst/AGTl7pL3ypQ==}
+    engines: {node: '>=16.0.0'}
+    dependencies:
+      tslib: 2.6.2
+    dev: false
+
   /cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -1802,6 +1861,10 @@ packages:
   /damerau-levenshtein@1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
     dev: true
+
+  /dataloader@2.2.2:
+    resolution: {integrity: sha512-8YnDaaf7N3k/q5HnTJVuzSyLETjoZjVmHc4AeKAzOvKHEFQKcn64OKBfzHYtE9zGjctNM7V9I0MfnUVLpi7M5g==}
+    dev: false
 
   /debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
@@ -1885,6 +1948,11 @@ packages:
     dependencies:
       esutils: 2.0.3
     dev: true
+
+  /dset@3.1.3:
+    resolution: {integrity: sha512-20TuZZHCEZ2O71q9/+8BwKwZ0QtD9D8ObhrihJPr+vLLYlSuAU3/zL4cSlgbfeoGHTjCSJBa7NGcrF9/Bx/WJQ==}
+    engines: {node: '>=4'}
+    dev: false
 
   /electron-to-chromium@1.4.571:
     resolution: {integrity: sha512-Sc+VtKwKCDj3f/kLBjdyjMpNzoZsU6WuL/wFb6EH8USmHEcebxRXcRrVpOpayxd52tuey4RUDpUsw5OS5LhJqg==}
@@ -4030,6 +4098,11 @@ packages:
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
+
+  /value-or-promise@1.0.12:
+    resolution: {integrity: sha512-Z6Uz+TYwEqE7ZN50gwn+1LCVo9ZVrpxRPOhOLnncYkY1ZzOYtrX8Fwf/rFktZ8R5mJms6EZf5TqNOMeZmnPq9Q==}
+    engines: {node: '>=12'}
+    dev: false
 
   /vscode-languageserver-types@3.17.5:
     resolution: {integrity: sha512-Ld1VelNuX9pdF39h2Hgaeb5hEZM2Z3jUrrMgWQAu82jMtZp7p3vJT3BzToKtZI7NgQssZje5o0zryOrhQvzQAg==}
