@@ -4,6 +4,7 @@ import Image from 'next/image';
 export enum Cluster {
     DEVNET = 0,
     TESTNET = 1,
+    MAINNET_BETA = 2,
 }
 
 type Props = Readonly<{
@@ -13,6 +14,7 @@ type Props = Readonly<{
 
 const CLUSTER_LABEL = {
     [Cluster.DEVNET]: 'Devnet',
+    [Cluster.MAINNET_BETA]: 'Mainnet Beta',
     [Cluster.TESTNET]: 'Testnet',
 } as const;
 
@@ -36,7 +38,7 @@ export function ClusterSwitcher({ currentCluster, onClusterChange }: Props) {
             }
             label="Select cluster"
         >
-            {[Cluster.DEVNET, Cluster.TESTNET].map(Cluster => (
+            {[Cluster.MAINNET_BETA, Cluster.DEVNET, Cluster.TESTNET].map(Cluster => (
                 <ToolbarMenu.Item onSelect={onClusterChange.bind(null, Cluster)}>
                     <StarIcon
                         className={`inline pe-1 align-text-top ${Cluster === currentCluster ? '' : 'invisible'}`}

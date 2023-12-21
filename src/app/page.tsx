@@ -22,7 +22,21 @@ BigInt.prototype.toJSON = function () {
 };
 
 function createQueryResolver(cluster: Cluster) {
-    const url = `https://api.${cluster}.solana.com`;
+    let url;
+    switch (cluster) {
+        case Cluster.DEVNET:
+            url = `https://api.devnet.solana.com`;
+            break;
+        case Cluster.MAINNET_BETA:
+            url = `https://api.mainnet-beta.solana.com`;
+            break;
+        case Cluster.TESTNET:
+            url = `https://api.testnet.solana.com`;
+            break;
+        default:
+            // Exhaustive switch.
+            return ((_: never) => {})(cluster);
+    }
     const transport = createDefaultRpcTransport({ url });
     const rpc = createSolanaRpc({ transport });
     const rpcGraphQL = createRpcGraphQL(rpc);
@@ -92,7 +106,7 @@ export default function Home() {
             },
         };
     }, [permalinkedQuery]);
-    const [cluster, setCluster] = React.useState<Cluster>(() => permalinkedQuery?.cluster ?? Cluster.DEVNET);
+    const [cluster, setCluster] = React.useState<Cluster>(() => permalinkedQuery?.cluster ?? Cluster.MAINNET_BETA);
     const variablesRef = useRef<string | undefined>();
     const graphQLFetcher = useMemo(() => {
         const resolveQuery = createQueryResolver(cluster);
