@@ -7,7 +7,7 @@ import { createDefaultRpcTransport, createSolanaRpc } from '@solana/web3.js';
 import { GraphiQL } from 'graphiql';
 import React, { useCallback, useEffect } from 'react';
 
-import { ClusterSwitcher, TargetCluster } from './cluster-switcher';
+import { ClusterSwitcher, TargetCluster } from '@/components/ClusterSwitcher';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -23,7 +23,7 @@ function setupRpcGraphQL(cluster: TargetCluster = 'devnet') {
     return createRpcGraphQL(rpc);
 }
 
-export default function Home() {
+export default function Ide() {
     const [cluster, setCluster] = React.useState<TargetCluster>('devnet');
     const [rpcGraphQL, setRpcGraphQL] = React.useState(setupRpcGraphQL(cluster));
 
@@ -40,22 +40,10 @@ export default function Home() {
     );
 
     return (
-        <main className="flex flex-col w-full h-screen divide-y divide-slate-300">
-            {/* Header section */}
-            <h1 className="px-5 py-4 text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500">
-                Solana GraphQL Playground
-            </h1>
-
-            {/* IDE */}
-            <div className="grow">
-                {typeof window !== 'undefined' && (
-                    <GraphiQL fetcher={graphQLFetcher} isHeadersEditorEnabled={false}>
-                        <GraphiQL.Logo>
-                            <ClusterSwitcher currentCluster={cluster} onClusterChange={setCluster} />
-                        </GraphiQL.Logo>
-                    </GraphiQL>
-                )}
-            </div>
-        </main>
+        <GraphiQL fetcher={graphQLFetcher} isHeadersEditorEnabled={false}>
+            <GraphiQL.Logo>
+                <ClusterSwitcher currentCluster={cluster} onClusterChange={setCluster} />
+            </GraphiQL.Logo>
+        </GraphiQL>
     );
 }
