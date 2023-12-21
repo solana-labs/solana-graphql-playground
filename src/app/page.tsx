@@ -5,7 +5,7 @@ import 'graphiql/graphiql.css';
 import { createRpcGraphQL } from '@solana/rpc-graphql';
 import { createDefaultRpcTransport, createSolanaRpc } from '@solana/web3.js';
 import { GraphiQL } from 'graphiql';
-import React, { useCallback, useEffect } from 'react';
+import React, { useMemo } from 'react';
 
 import { ClusterSwitcher, TargetCluster } from './cluster-switcher';
 
@@ -16,29 +16,23 @@ BigInt.prototype.toJSON = function () {
     return int ?? this.toString();
 };
 
-function setupRpcGraphQL(cluster: TargetCluster = 'devnet') {
+function createQueryResolver(cluster: TargetCluster = 'devnet') {
     const url = `https://api.${cluster}.solana.com`;
     const transport = createDefaultRpcTransport({ url });
     const rpc = createSolanaRpc({ transport });
-    return createRpcGraphQL(rpc);
+    const rpcGraphQL = createRpcGraphQL(rpc);
+    return rpcGraphQL.query.bind(rpcGraphQL);
 }
 
 export default function Home() {
     const [cluster, setCluster] = React.useState<TargetCluster>('devnet');
-    const [rpcGraphQL, setRpcGraphQL] = React.useState(setupRpcGraphQL(cluster));
-
-    useEffect(() => {
-        setRpcGraphQL(setupRpcGraphQL(cluster));
-    }, [cluster]);
-
-    const graphQLFetcher = useCallback(
-        async (...args: Parameters<React.ComponentProps<typeof GraphiQL>['fetcher']>) => {
+    const graphQLFetcher = useMemo(() => {
+        const resolveQuery = createQueryResolver(cluster);
+        return async (...args: Parameters<React.ComponentProps<typeof GraphiQL>['fetcher']>) => {
             const [{ query, variables }] = args;
-            return await rpcGraphQL.query(query, variables);
-        },
-        [rpcGraphQL],
-    );
-
+            return await resolveQuery(query, variables);
+        };
+    }, [cluster]);
     return (
         <main className="flex flex-col w-full h-screen divide-y divide-slate-300">
             {/* Header section */}
