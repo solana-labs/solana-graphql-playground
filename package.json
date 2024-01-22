@@ -19,8 +19,8 @@
     "dependencies": {
         "@graphiql/react": "^0.20.2",
         "@graphiql/toolkit": "^0.9.1",
-        "@solana/rpc-graphql": "2.0.0-experimental.e1b2277",
-        "@solana/web3.js": "2.0.0-experimental.e1b2277",
+        "@solana/rpc-graphql": "2.0.0-experimental.4366e2e",
+        "@solana/web3.js": "2.0.0-experimental.4366e2e",
         "classnames": "^2.3.2",
         "graphiql": "^3.0.10",
         "graphql": "^16.8.1",
